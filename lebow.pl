@@ -4,13 +4,13 @@ use strict;
 my $Input_filename = shift;
 open(INPUT, "< $Input_filename") or die "Can't open $Input_filename";
 
-my $Ngrams = 1;
+my $N = 1;
 while (my $_ = shift) {
-    $Ngrams = shift if /--ngrams/;
+    $N = shift if /--ngrams/;
 }
 
 my @unigram;
-my @line;
+my @ngram;
 
 while(<INPUT>){
     s/^\s*//g;
@@ -20,5 +20,9 @@ while(<INPUT>){
     push(@unigram, split(/\n/, $_));
 }
 
-
-print join("\n", @unigram);
+if($N==1){
+    print join("\n", @unigram);
+}
+else {
+    die "Bigrams and higher not yet supported";
+}
