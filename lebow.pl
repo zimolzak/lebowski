@@ -24,5 +24,8 @@ if($N==1){
     print join("\n", @unigram);
 }
 else {
-    die "Bigrams and higher not yet supported";
+    for my $i (0 .. $#unigram){
+	push( @ngram, join( " ", @unigram[$i .. $i+$N-1] ) );
+    }
+    print join("\n", @ngram);
 }
