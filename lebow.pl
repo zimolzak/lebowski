@@ -9,10 +9,16 @@ while (my $_ = shift) {
     $Ngrams = shift if /--ngrams/;
 }
 
+my @unigram;
+my @line;
+
 while(<INPUT>){
     s/^\s*//g;
     s/(\S+)\s+/\L$1\n/g; # lowercase everything & add newlines
     s/--/\n/g;
     s/[.,:"?!();]//g;
-    print;
+    push(@unigram, split(/\n/, $_));
 }
+
+
+print join("\n", @unigram);
