@@ -1,4 +1,7 @@
 #!/usr/bin/perl -w
+# usage example: 
+#  ./lebow.pl biglebowski.txt --ngrams 2  | sort | uniq -c | sort -nr | more
+
 use strict;
 
 my $Input_filename = shift;
