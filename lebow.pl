@@ -16,7 +16,7 @@ my @unigram;
 my @ngram;
 
 while(<INPUT>){
-    s/^\s*//g;
+    next unless (s/^\t\t\t\t([^\t])/$1/);
     s/(\S+)\s+/\L$1\n/g; # lowercase everything & add newlines
     s/--/\n/g;
     s/[.,:"?!();]//g;
