@@ -9,7 +9,8 @@ while(<>){
 	push (@this_speech, $_) ;
     }
     else {
-	push (@dialog, join(" ", @this_speech));
+	my $this_string = join(" ", @this_speech);
+	push (@dialog, $this_string) if $this_string =~ /[a-zA-Z]/;
 	#print join(" ", @this_speech) . "\n\n";
 	undef @this_speech;
 	next;
